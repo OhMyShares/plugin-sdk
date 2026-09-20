@@ -1,0 +1,22 @@
+{
+    "name": "ohmyshares/plugin",
+    "description": "OhMyShares plugin development kit",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "OhMyShares\\Plugin\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Vitaly",
+            "email": "vitaly@ohmyshares.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "require": {
+        "php": "^8.1"
+    }
+}
