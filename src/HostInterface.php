@@ -36,9 +36,10 @@ interface HostInterface
      * Returns a ticker by its string identifier.
      *
      * @param string $ticker The ticker symbol (e.g. "AAPL").
+     * @param string|null $exchange The exchange code (null — any/single match for the symbol).
      * @return Ticker|null The ticker, or null if it does not exist.
      */
-    public function getTicker(string $ticker): ?Ticker;
+    public function getTicker(string $ticker, ?string $exchange = null): ?Ticker;
 
     /**
      * Returns historical data for a ticker over the given period.
@@ -47,11 +48,13 @@ interface HostInterface
      * @param AssetType $assetType The asset type.
      * @param DateTimeInterface|null $dateStart Start of the period (null — from the very beginning).
      * @param DateTimeInterface|null $dateEnd End of the period (null — up to now).
+     * @param string|null $exchange The exchange code (null — data for all exchanges).
      * @return History[] The list of historical data records.
      */
     public function getHistory(string $ticker, AssetType $assetType,
                                ?DateTimeInterface $dateStart = null,
-                               ?DateTimeInterface $dateEnd = null): array;
+                               ?DateTimeInterface $dateEnd = null,
+                               ?string $exchange = null): array;
 
     /**
      * Writes a message to the system log.
